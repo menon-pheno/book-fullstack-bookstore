@@ -1,7 +1,5 @@
 # 第二章
 
-TODO: check TOC
-
 - HTTP
 - Express 伺服器
   - Next-Express 伺服器、nodemon
