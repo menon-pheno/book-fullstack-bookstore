@@ -16,22 +16,21 @@
 
 在這本書中，你會從無到有打造一個全端的 JavaScript 網路應用程式(web application)。你會學習如何架構你的專案，並且實作許多內部與外部的 API 架構。
 
-TODO: 更新
 在瀏覽器端，你主要會學習的技術為： Next.js, React.js, Material-UI。
-在伺服器端，你主要會學習的技術為： Next.js, Node.js, Mongoose.js, MongoDB 資料庫。
+在伺服器端，你主要會學習的技術為： Next.js, Node.js, Express.js, Mongoose.js, MongoDB 資料庫。
 
-我們將會使用 [Next.js](https://nextjs.org) 這個框架來實作我們的專案，在每一章中逐步的將我們的專案建構起來。
+本書中多數的 component 是由 class component 實作，不過在第九章我們會把程式內最大的 `ReadChapter` class component 重新改寫成 `ReadChapterFunctional` 的 functional component。我們會詳細地討論如何將 React 的生命週期函式轉換成 hooks。我們並且會在第九章裡面實驗並且示範在我們的 Next.js 網路應用程式載入頁面時生命週期函式跟 hooks 是如何運作的。
 
-在上述這些技術之外，你更會學會如何將你的應用程式與下列的外部 API 服務做整合：
-
-TODO: 更新
+在這些技術之外，你更會學會如何將你的應用程式與下列的外部 API 服務做整合：
 
 - Google OAuth API
 - Github API
+- Line Pay API
+- AWS SES API
+- Mailchimp API
 
-你更加會學到許多觀念，例如 `session`、`cookie`、headers、HTTP request-response、`Promise`、`async/await`等。這些觀念是網路工程師所必要的知識，不論你是用什麼語言做開發。
+你更加會學到許多觀念，例如 `session`、`cookie`、headers、HTTP request-response、Express middleware、`Promise`、`async/await`等。這些觀念是網路工程師所必要的知識，不論你是用什麼語言做開發。
 
-TODO: 更新
 這本書有九章，可於左方的選單看到我們的目錄，任選其中一個標題可以看到一段免費的節錄。如果你已登入且有購買本書，你則會看到完整的內容。
 
 在這裡無法完整的列出所有你在這本書會學到的東西，但是你可以透過以下幾件事來判斷這本書是否適合你：
@@ -42,7 +41,6 @@ TODO: 更新
 
 以上的步驟應該可以讓你更加清楚這本書所提供的內容是否符合你想學的東西。
 
-TODO: 更新
 如果一路跟著把這本書做完，你會寫將近 4,000 行的程式碼。
 
 ---
@@ -63,13 +61,9 @@ TODO: 更新
 
 ## 程式碼架構
 
-TODO: 更新
 請看一下[最後的程式碼](https://github.com/menon-pheno/fullstack-bookstore)及[各章節的階段性程式碼](https://github.com/menon-pheno/fullstack-bookstore/tree/master/book)。
 
-TODO: 更新
-在這九個章節中，你會寫下將近 4,000 行的程式碼，你的成果將會在 `book/9-end` 裡面，這也跟我們 `fullstack-bookstore` 根目錄下的內容一模一樣。我們 `fullstack-bookstore` 的專案架構如下：
-
-TODO: 更新
+在這九個章節中，你會寫下將近 4,000 行的程式碼，你的成果將會在 `book/9-end` 裡面，這也跟我們 `fullstack-bookstore` 的內容一模一樣。我們 `fullstack-bookstore` 的專案架構如下：
 
 ```
 .
@@ -160,7 +154,6 @@ TODO: 更新
 - 販賣線上內容，例如你看到的這本書
 - 延伸專案的架構，變成一個軟體服務
 
-TODO: 更新
 這個專案的使用者有三種可能的角色：`Public`、`Customer`、`Admin`。我們會在第五章中討論角色。最後的應用程式會同時具有伺服器端及用戶端渲染的頁面。在初次載入時，頁面是由伺服器端渲染；而接續的載入（例如點擊內部的導覽連結）則會由網頁的用戶端渲染。
 
 下面是我們這本書內的專案的一些截圖。
@@ -169,22 +162,22 @@ TODO: 更新
 
 - 章節節錄：這一頁給尚未購買書籍的造訪者呈現一些免費的預覽內容。
 
-TODO: 更新
+#### TODO - 加 image
 
-- 已購買書籍內容：再登入後（透過 Google OAuth API）及購買此書後，顧客可以看到章節的完整內容。
+- 已購買書籍內容：再登入後（透過 Google OAuth API）及購買此書後（透過 LinePay API），顧客可以看到章節的完整內容。
 
-TODO: 更新
+#### TODO - 加 image
 
 ### Admin 頁面
 
 - 新增及修改書籍：Admin 角色的用戶設定書價、書名、還有存放書的內容的 Github repo 來建立一本書。
 
-TODO: 更新
+#### TODO - 加 image
 
 - 書籍內容：要更新書籍的內容，Admin 角色與存放書籍內容的 Github repo 做同步
 
-TODO: 更新
+#### TODO - 加 image
 
 ## 關於作者
 
-TODO: 更新
+#### TODO - 關於作者的說明
