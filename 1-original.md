@@ -1,6 +1,6 @@
 # 第一章
 
-- 前置作業
+- 設定 Node.js 專案
   - 安裝 Node.js 及 Yarn
   - package.json
 - VS code 編輯器及 lint
@@ -24,7 +24,6 @@
 
 ---
 
-TODO: 更新
 我們已經說明過了我們寫這本書並且開發這個網路應用程式的動機了。而動機除外，這本書跟多數其他的書差異點在於會**從零開始**帶你開發出一個使用現代技術且可商業使用的軟體。到第九章的時候，我們會一起寫出將近 4,000 行程式碼。
 
 在我們開工之前，先取得`1-begin`的程式碼。[1-begin](https://github.com/menon-pheno/fullstack-bookstore/tree/master/book/1-begin)資料夾位於[fullstack-bookstore repo](https://github.com/menon-pheno/fullstack-bookstore)`book`的目錄內。
@@ -50,9 +49,20 @@ TODO: 更新
 
 ---
 
-## 前置作業
+## 設定 Node.js 專案
 
-在這本書裡我們使用的作業系統為 macOS Montery 12.1。因此我們所寫的步驟在其他 Linux 為基礎的作業系統絕大多數都會適用（例如 Debian 及 Ubuntu）。並且我們使用 Visual Studio code 作為我們的編輯器（[VS Code 官網](https://code.visualstudio.com)）。這安裝在我們的開發電腦上，還滿推薦這個編輯器，輕量但是又有充足的設定方式。
+在這本書裡我們使用的作業系統為 macOS Montery 12.1。因此我們所寫的步驟在其他 Linux 為基礎的作業系統絕大多數都會適用（例如 Debian 及 Ubuntu）。並且我們使用 Visual Studio code 作為我們的編輯器（[https://code.visualstudio.com](https://code.visualstudio.com)）。這安裝在我們的開發電腦上，還滿推這個編輯器，輕量但是又有充足的設定方式。
+
+本書開發的網路應用程式具有許多的內部及外部 API 架構。在開發內部 API 時，你會學習到有關於 HTTP request-response 週期、Express 伺服器（routes、middleware、router、methods）、API methods 及 Mongoose API。在開發外部 API 架構時，你會學到有關於 Google API、AWS SES API、Github API、LinePay API 及 Mailchimp API 的服務。
+
+我們這個書店程式的核心技術堆棧為：
+
+- 使用者會看到的部分為：Next.js、React.js、Material-UI
+- 伺服器端的部分為：Next.js、Node.js、Next.js、Express.js、Mongoose.js、Ｍ ongoDB 資料庫
+
+你也會學到如何 SEO 來優化你的被搜尋成效，並且部署你的軟體到 Heroku 及 AWS Elastic Beanstalk。
+
+我們強烈建議你看一下我們的為於[https://TODO](https://TODO)的章節目錄及我們的公共 repo [https://github.com/menon-pheno/fullstack-bookstore](https://github.com/menon-pheno/fullstack-bookstore) 以多了解這本書會介紹的東西。
 
 ---
 
@@ -62,7 +72,7 @@ TODO: 更新
 
 我強力建議使用 `nvm`（Node Version Manager） 來安裝 Node：
 
-[NVM 的 github 連結](https://github.com/creationix/nvm)
+[https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 
 在 Ubuntu 或 Linux 平台上，按 Ctrl+Alt+T 來開啟你的終端器（也可以透過搜尋來找 terminal）。
 
@@ -78,24 +88,22 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 nvm --version
 ```
 
-![alt nvm install](./1-images/1-nvm-install.png)
-
 - 啟動 nvm：
 
 ```
 . ~/.nvm/nvm.sh
 ```
 
-- 安裝 Node 16.14.0（這是目前 Node 的 lts 版本）：
+- 安裝 Node 12.13.0：
 
 ```
-nvm install 16.14.0
+nvm install 12.13.0
 ```
 
 - 將這個 Node 版本設為預設：
 
 ```
-nvm alias default 16.14.0
+nvm alias default 12.13.0
 ```
 
 - 檢查 Node 版本是否有正確安裝跟使用
@@ -104,9 +112,7 @@ nvm alias default 16.14.0
 node -v
 ```
 
-![alt node version](./1-images/1-node-version.png)
-
-Node 的版本現在應該是 16.14.0。
+Node 的版本現在應該是 12.13.0。
 
 在 Node 安裝好之後，我們就可以安裝 Yarn。Yarn 是一個管理 Node third-party 套件（常見的名稱有 package、module、library）的軟體。每當我們需要使用一個由別的開發者所提供的套件時，我們就將套件的名稱與版本加到 `package.json` 檔案裡，然後在這個專案的目錄下執行 `yarn` 這個指令（另外個方式是執行 `yarn add packageName@packageVersion`）。下個小節會對 `package.json` 再多做介紹。
 
